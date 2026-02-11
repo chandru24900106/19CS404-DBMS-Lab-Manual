@@ -47,123 +47,156 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1102" height="647" alt="image" src="https://github.com/user-attachments/assets/36cd0661-14d5-49d8-8fb4-43e3a278a34d" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+update employees
+set email='Unavailable'
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1207" height="522" alt="image" src="https://github.com/user-attachments/assets/972f03ad-7511-4355-8935-b12664d624ec" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="997" height="320" alt="image" src="https://github.com/user-attachments/assets/6f4811ed-eca0-4d64-8fe2-ca988e7e2160" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+update products 
+set product_name='Premium Bread'
+where product_id=5;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1171" height="401" alt="image" src="https://github.com/user-attachments/assets/def0dfca-2d62-4911-a16c-fe5e87d970d5" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="1143" height="602" alt="image" src="https://github.com/user-attachments/assets/527c121d-a9f4-4e8e-8a91-76436ad7e719" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+update PRODUCTS 
+set reorder_lvl=reorder_lvl*0.7 
+where product_name like '%cream%' and quantity>reorder_lvl;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1176" height="406" alt="image" src="https://github.com/user-attachments/assets/5832f77e-b1b7-46e4-8f31-5f628438de83" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1182" height="518" alt="image" src="https://github.com/user-attachments/assets/6131ec3f-2008-4492-8fb3-093b2ed0a7d3" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+update Products
+set reorder_lvl=20
+where quantity<10 and category='Snacks'
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1171" height="482" alt="image" src="https://github.com/user-attachments/assets/e6fd6469-e4db-4cbb-96d5-6e1470addac9" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1217" height="526" alt="image" src="https://github.com/user-attachments/assets/88fac0be-d2a5-4062-acc6-317a88a22fa3" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+update products
+set reorder_lvl=reorder_lvl*1.30
+where category='Food' and quantity < (reorder_lvl*0.5);
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1192" height="322" alt="image" src="https://github.com/user-attachments/assets/ad57e105-7a9d-4333-9d6c-9de5d0b7eb49" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="1208" height="502" alt="image" src="https://github.com/user-attachments/assets/bf270035-ff1e-4c84-9aa0-3e4310db2a2d" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+delete from Customer where (GRADE > 2 and PAYMENT_AMT < (SELECT AVG(PAYMENT_AMT) FROM Customer)) or OUTSTANDING_AMT>8000
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1197" height="507" alt="image" src="https://github.com/user-attachments/assets/23ca9941-93c8-4951-9a1c-6db627f6b706" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="937" height="462" alt="image" src="https://github.com/user-attachments/assets/851043a6-d695-42a9-99cc-eef541cf6cc5" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+delete from customer
+where cust_country='India' and cust_city<>'Chennai'
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1145" height="840" alt="image" src="https://github.com/user-attachments/assets/5d234f20-6e81-40dc-8b39-35146eb58ba1" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1216" height="493" alt="image" src="https://github.com/user-attachments/assets/1d8ad74c-423e-4967-84e5-708fc52b97ff" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+delete from Customer 
+where  CUST_CITY<>'New York' and OUTSTANDING_AMT>5000
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1148" height="507" alt="image" src="https://github.com/user-attachments/assets/cfd89b39-8e86-4e34-8df6-80ac84fe5fab" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1177" height="331" alt="image" src="https://github.com/user-attachments/assets/d438e8f4-8a62-4610-a21a-b18a9646e708" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+delete from Customer
+where CUST_CITY like 'l%'
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1192" height="777" alt="image" src="https://github.com/user-attachments/assets/eb53ce8c-1d2d-4e9a-aad8-17559d65fca3" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1242" height="517" alt="image" src="https://github.com/user-attachments/assets/dcc69f7e-7956-4bcc-80b9-3a388162efea" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+delete from Doctors
+where (specialization='Pediatrics' or specialization='Cardiology') and last_name='Brown';
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="997" height="897" alt="image" src="https://github.com/user-attachments/assets/0f9753ab-8ed1-485a-b087-f4887b97ca43" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
