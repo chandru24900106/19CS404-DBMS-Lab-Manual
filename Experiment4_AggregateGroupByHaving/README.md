@@ -38,7 +38,8 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="717" height="647" alt="image" src="https://github.com/user-attachments/assets/a4d2c66d-79f8-468b-9a07-a3804703457b" />
+
 
 ```sql
 -- Paste your SQL code below for Question 1
