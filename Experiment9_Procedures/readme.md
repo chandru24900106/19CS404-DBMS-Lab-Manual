@@ -60,8 +60,30 @@ Key Differences:
 - Use `DBMS_OUTPUT.PUT_LINE` to display the result.
 - Call the procedure with a number as input.
 
+### Program:
+
+```
+CREATE OR REPLACE PROCEDURE find_square(p_number IN NUMBER) IS
+    v_square NUMBER;
+BEGIN
+    v_square := p_number * p_number;
+    DBMS_OUTPUT.PUT_LINE('Square of ' || p_number || ' is ' || v_square);
+END;
+/
+SET SERVEROUTPUT ON;
+
+BEGIN
+    find_square(6);
+END;
+/
+
+```
+
 **Expected Output:**  
 Square of 6 is 36
+
+<img width="395" height="154" alt="image" src="https://github.com/user-attachments/assets/a0162e45-6bb3-40fe-ad5d-5123467e5585" />
+
 
 ---
 
@@ -74,8 +96,45 @@ Square of 6 is 36
 - Return the result using the `RETURN` statement.
 - Call the function using a `SELECT` statement or in an anonymous block.
 
+### Program:
+
+```
+SET SERVEROUTPUT ON;
+
+
+CREATE OR REPLACE FUNCTION get_factorial(p_number IN NUMBER)
+RETURN NUMBER
+IS
+   v_result NUMBER := 1;
+BEGIN
+   IF p_number < 0 THEN
+      RETURN NULL;  
+   END IF;
+
+   FOR i IN 1..p_number LOOP
+      v_result := v_result * i;
+   END LOOP;
+
+   RETURN v_result;
+END;
+/
+
+DECLARE
+   v_input NUMBER := 5;
+   v_output NUMBER;
+BEGIN
+   v_output := get_factorial(v_input);
+   DBMS_OUTPUT.PUT_LINE('Factorial of ' || v_input || ' is ' || v_output);
+END;
+/
+
+```
+
 **Expected Output:**  
 Factorial of 5 is 120
+
+<img width="393" height="162" alt="image" src="https://github.com/user-attachments/assets/57b1bc2b-df44-4602-8d8f-19528fcb9e1f" />
+
 
 ---
 
@@ -87,8 +146,35 @@ Factorial of 5 is 120
 - Use the `MOD` function to check if the number is divisible by 2.
 - Display whether it is Even or Odd using `DBMS_OUTPUT.PUT_LINE`.
 
+### Program:
+
+```
+SET SERVEROUTPUT ON;
+
+
+CREATE OR REPLACE PROCEDURE check_even_odd(p_number IN NUMBER) IS
+BEGIN
+  
+   IF MOD(p_number, 2) = 0 THEN
+      DBMS_OUTPUT.PUT_LINE(p_number || ' is Even');
+   ELSE
+      DBMS_OUTPUT.PUT_LINE(p_number || ' is Odd');
+   END IF;
+END;
+/
+
+BEGIN
+   check_even_odd(12);  
+END;
+/
+
+```
+
 **Expected Output:**  
 12 is Even
+
+<img width="395" height="165" alt="image" src="https://github.com/user-attachments/assets/3b07dfb4-fae1-441f-938b-7608bbd3eeeb" />
+
 
 ---
 
@@ -101,8 +187,41 @@ Factorial of 5 is 120
 - Return the reversed number.
 - Call the function and display the output.
 
+### Program:
+
+```
+CREATE OR REPLACE FUNCTION reverse_number(p_number IN NUMBER)
+RETURN NUMBER IS
+    v_number     NUMBER := p_number;
+    v_reversed   NUMBER := 0;
+    v_digit      NUMBER;
+BEGIN
+    WHILE v_number > 0 LOOP
+        v_digit := MOD(v_number, 10);
+        v_reversed := (v_reversed * 10) + v_digit;
+        v_number := TRUNC(v_number / 10);
+    END LOOP;
+    RETURN v_reversed;
+END;
+/
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_input    NUMBER := 1234;
+    v_result   NUMBER;
+BEGIN
+    v_result := reverse_number(v_input);
+    DBMS_OUTPUT.PUT_LINE('Reversed number of ' || v_input || ' is ' || v_result);
+END;
+/
+
+```
+
 **Expected Output:**  
 Reversed number of 1234 is 4321
+
+<img width="408" height="165" alt="image" src="https://github.com/user-attachments/assets/4154df6e-4477-4be8-9961-1e0cf6082b05" />
+
 
 ---
 
@@ -114,6 +233,26 @@ Reversed number of 1234 is 4321
 - Use a loop from 1 to 10 to multiply the input number.
 - Display the multiplication results using `DBMS_OUTPUT.PUT_LINE`.
 
+### Program:
+
+```
+CREATE OR REPLACE PROCEDURE print_table(p_number IN NUMBER) IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Multiplication table of ' || p_number || ':');
+    FOR i IN 1..10 LOOP
+        DBMS_OUTPUT.PUT_LINE(p_number || ' x ' || i || ' = ' || (p_number * i));
+    END LOOP;
+END;
+/
+SET SERVEROUTPUT ON;
+
+BEGIN
+    print_table(5);
+END;
+/
+
+```
+
 **Expected Output:**  
 Multiplication table of 5:  
 5 x 1 = 5  
@@ -121,6 +260,9 @@ Multiplication table of 5:
 5 x 3 = 15  
 ...  
 5 x 10 = 50
+
+<img width="399" height="385" alt="image" src="https://github.com/user-attachments/assets/435d3f58-5889-4945-a454-d5aa4631fbb2" />
+
 
 ## RESULT
 Thus, the PL/SQL programs using procedures and functions were written, compiled, and executed successfully.
